@@ -3,10 +3,11 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '78%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
+    marginTop: 27,
   },
   title: {
     fontFamily: theme.fonts.title700,
