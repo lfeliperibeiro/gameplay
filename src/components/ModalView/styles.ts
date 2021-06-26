@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     marginTop: 100,
   },
+  signOut: {
+    marginTop: 700,
+  },
   overlay: {
     backgroundColor: theme.colors.overlay,
     flex: 1,
