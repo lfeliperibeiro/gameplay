@@ -10,15 +10,21 @@ import { Background } from '../Background';
 
 type ModalViewProps = ModalProps & {
   children: ReactNode;
-  closeModal: () => void;
+  closeModal?: () => void;
+  signOut?: boolean;
 };
 
-export function ModalView({ children, closeModal, ...rest }: ModalViewProps) {
+export function ModalView({
+  children,
+  signOut,
+  closeModal,
+  ...rest
+}: ModalViewProps) {
   return (
     <Modal transparent animationType={'slide'} {...rest} statusBarTranslucent>
       <TouchableWithoutFeedback onPress={closeModal}>
         <View style={styles.overlay}>
-          <View style={styles.container}>
+          <View style={[styles.container, signOut && styles.signOut]}>
             <Background>
               <View style={styles.bar} />
               {children}
