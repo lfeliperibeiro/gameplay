@@ -1,15 +1,29 @@
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import React from 'react';
 import { styles } from './styles';
+import DicordSVG from '../../assets/discord.svg';
 
-export function GuildIcon() {
+const { CDN_IMAGE } = process.env;
+
+type Props = {
+  guildId: string;
+  iconId: string | null;
+};
+
+export function GuildIcon({ guildId, iconId }: Props) {
   return (
-    <Image
-      source={{
-        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3dsocSazJKYhsOZpCkQyinr3C4kkXfVpj2haD9fKvqCR_pJy2_m47Qgu_re42Imr4S9U&usqp=CAU',
-      }}
-      style={styles.image}
-      resizeMode={'cover'}
-    />
+    <View style={styles.container}>
+      {iconId ? (
+        <Image
+          source={{
+            uri: `${CDN_IMAGE}/icons/${guildId}/${iconId}.png`,
+          }}
+          style={styles.image}
+          resizeMode={'cover'}
+        />
+      ) : (
+        <DicordSVG width={40} height={40} />
+      )}
+    </View>
   );
 }
